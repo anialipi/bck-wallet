@@ -1,0 +1,25 @@
+.Transaction {
+  margin-top: 5vh;
+  font-size: 2vmin;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.Table {
+  background-color: #E8EAF6;
+}
+
+.TableHeader {
+  background-color: #5C6BC0;
+  color: white;
+}
+
+.Minus {
+  color: red;
+}
+
+.Plus {
+  color: green;
+}
