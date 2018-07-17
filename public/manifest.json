@@ -1,6 +1,6 @@
 {
-  "short_name": "cCLP Wallet",
-  "name": "cCLP Wallet",
+  "short_name": "BCK Wallet",
+  "name": "BCK Wallet",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,5 +11,5 @@
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#3F51B5"
+  "background_color": "#FFFFFF"
 }

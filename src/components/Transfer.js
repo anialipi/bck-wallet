@@ -1,73 +1,52 @@
 import React, { Component } from 'react';
-import './Transfer.css'
 
-const Errors = {
-  general: '',
-  amount: '',
-  address: ''
-}
 
 export default class Transfer extends Component {
-  state = {
-    amount: '',
-    address: '',
-    errors: {...Errors}
-  }
-
-  clearErrors() {
-    this.setState({
-      errors: {...Errors}
-    })
-  }
-
-  onAmountChange = (e) => {
-    let amount = e.target.value
-    let error = ''
-    if (isNaN(amount)) {
-      error = 'El monto debe ser numerico'
-    }
-    this.setState({amount, errors: {...this.state.errors, amount: error}})
-  }
-
-  onAddressChange = (e) => {
-    this.setState({address: e.target.value})
-  }
-
-  submit = (e) => {
-    e.preventDefault()
-    this.clearErrors()
-    let {amount, address} = this.state
-
-    if (isNaN(amount)) {
-      this.setState({errors: {...this.state.errors, general: 'El monto es requerido'}})
-      return
-    }
-    if (address.trim().length === 0) {
-      this.setState({errors: {...this.state.errors, general: 'La direccion es requerida'}})
-      return
-    }
-
-    let data = {
-      amount: parseInt(this.state.amount, 10),
-      address
-    }
-    console.log('submit', data)
-  }
 
   render() {
-    let errors = this.state.errors
     return (
-      <div className="Transfer">
-        <form className="pure-form" onSubmit={this.submit}>
-          <div>
-            <input placeholder="Amount" className="pure-input-1" value={this.state.amount} onChange={this.onAmountChange} required/>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 order-md-2">
+            <h4 className="d-flex justify-content-between mb-3">
+              <span className="text-muted">Beckoiners</span>
+            </h4>
+            <ul className="list-group">
+              <li className="list-group-item d-flex justify-content-between">
+                <div>
+                  <h6 className="my-0">Michael Sena</h6>
+                  <small className="text-muted">0x9C803151d0fD38f8C9FCEe7D5d02498dF6067E5A</small>
+                </div>
+                <span className="text-muted">12 BCK</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between">
+                <div>
+                  <h6 className="my-0">Andres Junge</h6>
+                  <small className="text-muted">0x9C803151d0fD38f8C9FCEe7D5d02498dF6067E5A</small>
+                </div>
+                <span className="text-muted">8 BCK</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between">
+                <div>
+                  <h6 className="my-0">
+                    <b>Beck Klausmann</b>
+                  </h6>
+                  <small className="text-muted">0x9C803151d0fD38f8C9FCEe7D5d02498dF6067E5A</small>
+                </div>
+                <span className="text-muted">1300 &nbsp;BCK</span>
+              </li>
+            </ul>
+            <p> </p>
+            <form className="form-inline d-flex justify-content-between align-items-center align-self-center flex-column">
+              <div className="input-group">
+                <input type="number" className="form-control" placeholder="Amount to Send"/>
+                <div className="input-group-append">
+                  <button className="btn btn-primary" type="button">Send BCK</button>
+                </div>
+              </div>
+            </form>
           </div>
-          <div>
-            <input placeholder="Address" className="pure-input-1" value={this.state.address} onChange={this.onAddressChange} required/>
-          </div>
-          <div className="ErrorMessage">{errors.general}</div>
-          <button className="Send pure-button pure-input-1 pure-button-primary">Enviar</button>
-        </form>
+        </div>
       </div>
     );
   }
