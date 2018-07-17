@@ -51,10 +51,9 @@ render() {
               <li className="list-group-item d-flex justify-content-between" key={i}>
                 <div>
                   <h6 className="my-0">{hodlers[hodler].firstName} {hodlers[hodler].lastName}</h6>
-                  <small className="text-muted">{hodler}</small>
                 </div>
                 <span className="text-muted">{this.state.balances[hodler]} BCK</span>
-                </li>
+              </li>
             ))}
             </ul>
             <p> </p>
