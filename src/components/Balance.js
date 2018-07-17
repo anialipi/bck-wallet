@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {accounts, tokenBalance} from '../lib/Eth'
+import hodlers from '../lib/hodlers'
 
 const tokenAddress='0x52e0fa36160d7613e6bc17280f8f043ee7549f1a'; //BCK
 
@@ -24,7 +25,13 @@ export default class Balance extends Component {
     setBalances = (account) => {
         tokenBalance(tokenAddress,account).then(tokenBalance => this.setState({tokenBalance}))
     }
-    
+
+    nameFromAddress = (address) => {
+        const lAddress=address.toLowerCase()
+        if(!hodlers[lAddress]) return 'unknown';
+        return hodlers[lAddress].firstName;
+        
+    }
 
     render() {
     return (
@@ -32,7 +39,7 @@ export default class Balance extends Component {
         <div className="container">
         <div className="row">
             <div className="text-center col-md-7 mx-auto">
-            <h2 className="">Hi Andrés, your balance is:</h2>
+            <h2 className="">Hi {this.nameFromAddress(this.state.account)}, your have:</h2>
             </div>
         </div>
         <div className="row">
