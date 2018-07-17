@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {accounts, tokenBalance} from '../lib/Eth'
+import {accounts, tokenBalance, tokenTransfer} from '../lib/Eth'
 import hodlers from '../lib/hodlers'
 
 const tokenAddress='0x52e0fa36160d7613e6bc17280f8f043ee7549f1a'; //BCK
@@ -7,7 +7,9 @@ const tokenAddress='0x52e0fa36160d7613e6bc17280f8f043ee7549f1a'; //BCK
 export default class Transfer extends Component {
   state = {
     account: '',
-    balances: {}
+    balances: {},
+    selected: '',
+    amount: 0,
 }
 
 componentDidMount() {
@@ -36,9 +38,27 @@ setBalances = (account) => {
   
 }
 
+select = (selected,event) =>{
+  this.setState({selected})
+}
+
+onAmountChange = (e) => {
+  let amount = e.target.value
+  this.setState({amount})
+}
+
+transfer = (e) => {
+  e.preventDefault()
+  let to = this.state.selected
+  let amount = parseInt(this.state.amount, 10)
+  console.log("To:"+to+ " Amount:"+amount)
+  tokenTransfer(tokenAddress, this.state.account, to, amount)
+  .then(console.log)
+  .catch(console.error)
+}
+
 render() {
     //let tokenHodlers=
-
     return (
       <div className="container">
         <div className="row">
@@ -48,7 +68,9 @@ render() {
             </h4>
             <ul className="list-group">
             {Object.keys(hodlers).map((hodler, i) => (
-              <li className="list-group-item d-flex justify-content-between" key={i}>
+              <li className={"list-group-item d-flex justify-content-between " + (this.state.selected===hodler ? 'active': '') } 
+                onClick={(e) => this.select(hodler, e)}
+                key={i}>
                 <div>
                   <h6 className="my-0">{hodlers[hodler].firstName} {hodlers[hodler].lastName}</h6>
                 </div>
@@ -59,9 +81,9 @@ render() {
             <p> </p>
             <form className="form-inline d-flex justify-content-between align-items-center align-self-center flex-column">
               <div className="input-group">
-                <input type="number" className="form-control" placeholder="Amount to Send"/>
+                <input type="number" className="form-control" value={this.state.amount} onChange={this.onAmountChange}/>
                 <div className="input-group-append">
-                  <button className="btn btn-primary" type="button">Send BCK</button>
+                  <button className="btn btn-primary" type="button" onClick={this.transfer} >Send BCK</button>
                 </div>
               </div>
             </form>
