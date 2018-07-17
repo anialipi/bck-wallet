@@ -42,6 +42,10 @@ module.exports = {
     '0x258ddd84abf61ba1d1e39f95d8863ee9ca218c06':{
         firstName: 'Oed',
         lastName: ''
+    },
+    '0x36e4cbc07f36678411055fb3bdf06cb6f87ee001':{
+        firstName: 'uPort Team',
+        lastName: 'Multisig Wallet'
     }
 
 }
