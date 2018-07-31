@@ -43,6 +43,10 @@ module.exports = {
         firstName: 'Oed',
         lastName: ''
     },
+    '0xAC544344C9BdB281ABcF474Ce856d4D7e68764a0':{
+        firstName: 'Pelle',
+        lastName: 'Braendgaard'
+    },
     '0x36e4cbc07f36678411055fb3bdf06cb6f87ee001':{
         firstName: 'uPort Team',
         lastName: 'Multisig Wallet'
