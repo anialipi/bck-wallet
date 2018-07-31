@@ -11,6 +11,10 @@ module.exports = {
         firstName: 'Danny',
         lastName: 'Zuckerman'
     },
+    '0xa5a46b8e6035971cb4ce8317caaf8619f83ad42f':{
+        firstName: 'Rob',
+        lastName: 'W'
+    },
     '0x280be92A5DA98533351B7B2B2D7da9c47F25dE39': {
         firstName: 'Greg',
         lastName: 'Bugyis'
