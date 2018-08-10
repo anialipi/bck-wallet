@@ -1,4 +1,8 @@
 module.exports = {
+    '0x04aed84a8868d1c7973e5a23b4c732d5e8f7bd53':{
+        firstName: 'Mike',
+        lastName: 'Xu'
+    },
     '0x9c803151d0fd38f8c9fcee7d5d02498df6067e5a':{
         firstName: 'Andres',
         lastName: 'Junge'
