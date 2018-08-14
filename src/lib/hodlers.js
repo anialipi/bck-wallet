@@ -59,5 +59,9 @@ module.exports = {
         firstName: 'uPort Team',
         lastName: 'Multisig Wallet'
     }
+    '0x8D956dbF583d6D0cE2eDF8aF5aD1fa7AeA5B522F':{
+        firstName:'Ania',
+        lastName:'Lipinska'
+    }
 
 }
